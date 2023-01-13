@@ -1,7 +1,7 @@
 const express = require('express');
 const router= express.Router();
 const PostCollection= require('../collections/post_collection')
-const middleware= require('../middleware/auth')
+const middleware= require('../middleware/LoginMiddleware')
 
 router.get('/', PostCollection.GetPost);
 router.post('/', middleware, PostCollection.PostPost);

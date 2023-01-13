@@ -16,10 +16,10 @@ const UserModel = mongoose.Schema({
         type: String,
         required: true
     },
-    likes:{
-        type: Number,
-        default: 0
-    },
+   // likes:{
+   //     type: Number,
+   //     default: 0
+    //},
     password:{
         type: String,
         required: true

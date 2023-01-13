@@ -2,17 +2,18 @@ const UserModel = require("../models/users_model")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
-exports.AuthGet = async (req, res) => {
+exports.LoginGet = async (req, res) => {
     try {
         const response = await UserModel.findById(req.usuario.id);
-        res.status(200).send(response)
+        res.status(200)
+        res.send(response)
     } catch (error) {
         console.log(error)
         res.status(400).send("error en recuperacion de datos")
     }
 }
 
-exports.AuthPost = async (req, res) => {
+exports.LoginPost = async (req, res) => {
     try {
         const { email, password } = req.body;
         const usuario = await UserModel.findOne({ email })
@@ -23,12 +24,14 @@ exports.AuthPost = async (req, res) => {
         const response = await bcrypt.compare(password, usuario.password)
         //Password incorrecto
         if (!response) {
-            return res.status(400).send("password incorrecto")
+            return res.status(400).send("contraseña incorrecta")
         }
         const userToken = {
-            usuario: {
-                id: usuario.id,
-            }
+            usuario: res.send (usuario)
+            // {
+                
+              //  id: usuario.id,
+           // }
         }
         jwt.sign(userToken, process.env.SECRETA, { expiresIn: 10000 },
             (error, token) => {
@@ -40,6 +43,6 @@ exports.AuthPost = async (req, res) => {
         )
     } catch (error) {
         console.log(error)
-        res.status(401).send("credenciales incorrectas")
+        res.status(401).send("campos incorrectos")
     }
 }

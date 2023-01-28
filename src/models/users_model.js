@@ -27,7 +27,13 @@ const UserModel = mongoose.Schema({
     createAdd:{
         type: Date,
         default: Date.now()
-    }
-})
+    },
+    resetPasswordToken:{
+        type: String,
+    },
+    resetPasswordExpires:{
+        type : Date,
+    },
+});
 
 module.exports = mongoose.model("UserModel", UserModel)

@@ -64,30 +64,30 @@ const AdminProductsModel = mongoose.Schema({
         type: Number,
         
     },
-    T36:{ 
-        type: String
-    },
-    T37:{ 
-        type: String
-    },
-    T38:{ 
-        type: String
-    },
-    T39:{ 
-        type: String
-    },
-    T40:{ 
-        type: String
-    },
-    T41:{ 
-        type: String
-    },
-    T42:{ 
-        type: String
-    },
-    T43:{ 
-        type: String
-    },
+    // T36:{ 
+    //     type: String
+    // },
+    // T37:{ 
+    //     type: String
+    // },
+    // T38:{ 
+    //     type: String
+    // },
+    // T39:{ 
+    //     type: String
+    // },
+    // T40:{ 
+    //     type: String
+    // },
+    // T41:{ 
+    //     type: String
+    // },
+    // T42:{ 
+    //     type: String
+    // },
+    // T43:{ 
+    //     type: String
+    // },
     createAdd:{
         type: Date,
         default: Date.now()

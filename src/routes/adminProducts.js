@@ -5,7 +5,6 @@ const router = express.Router();
 const AdminProductsCollection = require("../collections/adminProducts_collections")
 
 
-
 //router + peticion
 router.get('/', AdminProductsCollection.GetProducts)
 router.post('/', AdminProductsCollection.PostProducts)

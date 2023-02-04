@@ -1,6 +1,9 @@
 const UserModel = require("../models/users_model")
 const bcrypt = require("bcryptjs")
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const { Swal } = require("sweetalert2");
+
+
 
 exports.LoginGet = async (req, res) => {
     try {
@@ -25,16 +28,14 @@ exports.LoginPost = async (req, res) => {
         //Password incorrecto
         if (!response) {
             return res.status(400).send("contraseña incorrecta")
+           
         }
         const userToken = {
-            usuario: res.send (usuario)
-            // {
-                
-              //  id: usuario.id,
-           // }
+            usuario: {
+                id: usuario.id,
+            }
         }
-        jwt.sign(userToken, process.env.SECRETA, { expiresIn: 10000 },
-            (error, token) => {
+        jwt.sign(userToken, process.env.SECRETA, { expiresIn: 10000 },(error, token) => {
                 if (error) {
                     console.log(error)
                 }
@@ -44,5 +45,6 @@ exports.LoginPost = async (req, res) => {
     } catch (error) {
         console.log(error)
         res.status(401).send("campos incorrectos")
+       
     }
 }

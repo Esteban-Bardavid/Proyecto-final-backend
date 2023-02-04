@@ -5,26 +5,26 @@ const UserModel = mongoose.Schema({
         type: String,
         required: true
     },
-    lastname:{
+    lastname: {
         type: String,
         required: true
     },
-    age:{
+    age: {
         type: Number,
     },
-    email:{
+    email: {
         type: String,
         required: true
     },
-   // likes:{
-   //     type: Number,
-   //     default: 0
-    //},
-    password:{
+    admin: {
+        type: Boolean,
+        default: false
+    },
+    password: {
         type: String,
         required: true
     },
-    createAdd:{
+    createAdd: {
         type: Date,
         default: Date.now()
     }

@@ -1,5 +1,6 @@
-const {User} = require("../models/users_model")
+const User = require("../models/users_model")
 const nodemailer = require("nodemailer")
+const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
 

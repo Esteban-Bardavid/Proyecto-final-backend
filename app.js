@@ -21,9 +21,8 @@ app.use(express.json())
 
 
 const userRoutes = require('./src/routes/user');
-const authRoutes = require('./src/routes/auth');
-const postRoutes=require('./src/routes/post');
-const adminProductsRoutes = require ('./src/routes/adminProducts')
+const authRoutes = require('./src/routes/auth')
+const postRoutes = require('./src/routes/post')
 
 app.use('/api/user', userRoutes)
 app.use('/api/Login', LoginRoutes)

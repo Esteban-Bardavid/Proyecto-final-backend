@@ -18,17 +18,14 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.3",
     "morgan": "^1.10.0",
-<<<<<<< HEAD
     "nodemailer": "^6.8.0",
     "react-bootstrap": "^2.7.0",
+    "sweetalert": "^2.1.2",
     "sweetalert2": "^11.7.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
-=======
     "nodemailer": "^6.9.0",
     "nodemon": "^2.0.20",
     "sweetalert2": "^11.7.0"
->>>>>>> c72e0cbefc5f4847b915fc757e28ba1cc4203476
   }
 }

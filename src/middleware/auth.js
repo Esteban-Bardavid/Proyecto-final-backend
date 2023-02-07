@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-function authMiddleware(req, res, next) {
+function AuthMiddleware(req, res, next) {
     const token = req.header("x-auth-token")
     if (!token) {
        return res.status(400).send("no hay token")
@@ -15,4 +15,4 @@ function authMiddleware(req, res, next) {
     }
 }
 
-module.exports = authMiddleware;
+module.exports = AuthMiddleware;

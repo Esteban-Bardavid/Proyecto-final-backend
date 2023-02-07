@@ -24,11 +24,14 @@ const userRoutes = require('./src/routes/user');
 const authRoutes = require('./src/routes/auth')
 const postRoutes = require('./src/routes/post')
 const emailRoutes = require('./src/routes/email')
+const loginRoutes = require('./src/routes/LoginRoute')
+const adminProductsRoutes = require('./src/routes/adminProducts')
 
 app.use('/api/user', userRoutes)
-app.use('/api/Login', LoginRoutes)
+app.use('/api/auth', authRoutes)
 app.use('/api/post', postRoutes)
 app.use('/api/email', emailRoutes)
+app.use('/api/Login', loginRoutes)
 app.use ('/api/adminProducts', adminProductsRoutes)
 
 

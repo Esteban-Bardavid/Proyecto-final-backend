@@ -3,7 +3,8 @@ const router = express.Router();
 
 //colección
 const UserCollection = require("../collections/user_collections")
-const ResetCollections = require("../controller/resetPasswordController")
+const ResetCollections = require("../controller/resetPasswordController");
+const AuthMiddleware = require("../middleware/auth");
 
 
 
@@ -12,8 +13,10 @@ const ResetCollections = require("../controller/resetPasswordController")
 router.get('/', UserCollection.GetUsers)
 router.get('/searchEmail',  ResetCollections.searchEmail)
 router.post('/', UserCollection.PostUsers)
+router.post('/forgotPassword', AuthMiddleware, UserCollection.PostUsers)
 router.put('/:idUser', UserCollection.PutUsers)
 router.put('/resetPassword/:idUser', ResetCollections.ResetPassword)
 router.delete('/:idUser', UserCollection.DeleteUsers)
+
 
 module.exports = router;

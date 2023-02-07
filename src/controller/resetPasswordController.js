@@ -1,7 +1,7 @@
 const User = require("../models/users_model")
 const bcrypt = require("bcryptjs")
 
-let regExPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,16}$/;
+
 
 
 

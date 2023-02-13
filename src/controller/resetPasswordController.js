@@ -1,10 +1,6 @@
 const User = require("../models/users_model")
 const bcrypt = require("bcryptjs")
 
-
-
-
-
 exports.ResetPassword = async (req, res) => {
     const { idUser } = req.params
 
@@ -28,9 +24,7 @@ exports.searchEmail = async (req, res) => {
     const { email } = req.body
 
     try {
-
-
-        const response = await User.findOne({ email })
+ const response = await User.findOne({ email })
         res.status(201).send(
             response
         )

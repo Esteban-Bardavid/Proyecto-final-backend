@@ -1,3 +1,7 @@
+const EmailModel = require('../models/email_model');
+const UsersModel = require('../models/users_model');
+const nodemailer = require('nodemailer')
+
 app.post("/ForgotPassword", async (req, res) => {
     const { email } = req.body;
     try {
@@ -9,17 +13,18 @@ app.post("/ForgotPassword", async (req, res) => {
       const token = jwt.sign({ email: user.email, id: user._id }, secret, {
         expiresIn: "5m",
       });
-      const link = `http://localhost:3000/resetPassword/${user._id}/${token}`;
+      const link = `http://localhost:3000/resetPassword/${req.usuario.id}`;
       var transporter = nodemailer.createTransport({
-        service: "gmail",
+        host: "sandbox.smtp.mailtrap.io",
+        port: 2525,
         auth: {
-          user: `${user.email}`,
-          pass: `${token}`,
+            user: "f24840f334d194",
+            pass: "8543799b40ddf7"
         },
       });
   
       var mailOptions = {
-        from: "Bardavidpablo@gmail.com",
+        from: emailUser.email,
         to: "Bardavidesteban@gmail.com",
         subject: "Password Reset",
         text: link,

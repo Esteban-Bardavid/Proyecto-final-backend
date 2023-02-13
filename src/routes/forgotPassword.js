@@ -1,5 +1,6 @@
-import crypto from 'crypto';
-import User from '../sequelize';
+const EmailModel = require('../models/email_model');
+const UsersModel = require('../models/users_model');
+const nodemailer = require('nodemailer')
 
 require('dotenv').config();
 
@@ -7,7 +8,7 @@ const nodemailer = require('nodemailer');
 
 module.exports = (app) => {
   app.post('/forgotPassword', (req, res) => {
-    if (req.body.email === '') {
+    if (req.usuario.id === '') {
       res.status(400).send('email requerido');
     }
     console.error(req.body.email);
@@ -23,20 +24,21 @@ module.exports = (app) => {
         const token = crypto.randomBytes(20).toString('hex');
         user.update({
           resetPasswordToken: token,
-          resetPasswordExpires: Date.now() + 3600000,
         });
-
-        const transporter = nodemailer.createTransport({
-          service: 'gmail',
+        
+        const { title, description } = req.body
+        var transport = nodemailer.createTransport({
+          host: "sandbox.smtp.mailtrap.io",
+          port: 2525,
           auth: {
-            user: `${process.env.EMAIL_ADDRESS}`,
-            pass: `${process.env.EMAIL_PASSWORD}`,
-          },
+            user: "f24840f334d194",
+            pass: "8543799b40ddf7"
+          }
         });
 
         const mailOptions = {
-          from: 'Bardavidesteban@gmail.com',
-          to: `${user.email}`,
+          from: emailUser.email,
+          to: ["Bardavidesteban@gmail.com"],
           subject: 'Link para resetear password',
           text:
             'Estás recibiendo esto porque tú (u otra persona) has solicitado el restablecimiento de la contraseña de tu cuenta.\n\n'

@@ -24,6 +24,10 @@ const UserModel = mongoose.Schema({
         type: String,
         required: true
     },
+    admin:{
+        type: String,
+        required: true
+    },
     createAdd:{
         type: Date,
         default: Date.now()

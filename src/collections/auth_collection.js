@@ -30,7 +30,7 @@ exports.AuthPost = async (req, res) => {
                 id: usuario.id,
             }
         }
-        jwt.sign(userToken, process.env.SECRETA, { expiresIn: 10000 },
+        jwt.sign(userToken, process.env.SECRETA,
             (error, token) => {
                 if (error) {
                     console.log(error)

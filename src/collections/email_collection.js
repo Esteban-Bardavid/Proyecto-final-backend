@@ -13,7 +13,7 @@ exports.EmailGet = async (req, res) => {
 }
 
 exports.EmailPost = async (req, res) => {
-    const link = `http://localhost:3000/resetPassword/${req.usuario.id}`;
+    const link = `http://localhost:3000/resetpassword/${req.usuario.id}`;
     const { title, description } = req.body;
     var transport = nodemailer.createTransport({
         host: "sandbox.smtp.mailtrap.io",

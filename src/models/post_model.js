@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const PostModel = mongoose.Schema({
     author: {
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         require: true,
     },
     authorName: {

@@ -23,11 +23,14 @@ app.use(express.json())
 const userRoutes = require('./src/routes/user');
 const authRoutes = require('./src/routes/auth');
 const postRoutes=require('./src/routes/post');
+const cartRoutes=require('./src/routes/cart');
 const adminProductsRoutes = require ('./src/routes/adminProducts')
 app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/post', postRoutes)
 app.use ('/api/adminProducts', adminProductsRoutes)
+app.use ('/api/cart', cartRoutes)
+
 
 
 app.listen(app.get("port"), () => {

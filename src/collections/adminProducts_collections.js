@@ -14,11 +14,12 @@ exports.GetProducts = async (req, res) => {
 exports.PostProducts = async (req, res) => {
     try {
         //Traemos el body de la peticion del postman
-        const { codigo, producto, imagen, precio, talle, marca, categoria, sex } = req.body;
+        const { sex } = req.body;
 
         //Crear un Modelo nuevo con los datos indicados
         const model = new AdminProductsModel({
             ...req.body,
+                
         })
 
         //Guardar en la base de datos el nuevo modelo

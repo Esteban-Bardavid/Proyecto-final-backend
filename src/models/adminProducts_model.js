@@ -64,6 +64,13 @@ const AdminProductsModel = mongoose.Schema({
         type: Number,
         
     },
+
+    arrayProduct:[
+        {
+        type:mongoose.Schema.Type.objetId,
+        ref:ListaProductos,
+     }]
+     ,
     createAdd:{
         type: Date,
         default: Date.now()

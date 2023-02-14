@@ -70,18 +70,35 @@ exports.DeleteUser = async (req, res) => {
     }
 }
 
-exports.PutUsers = async (req, res) => {
+
+exports.PutAddProduct = async (req, res) => {
+ 
+    const { idProduct } = req.params;
     try {
-        //Buscamos su ID por parametros
-        const { idUser } = req.params;
-        //Busca el usuario por ID (idUser) => tomar el req.body y cambia el usuario encontrado
-        const response = await UserModel.findByIdAndUpdate({ _id: idUser }, req.body, { new: true })
+        //1) Buscamos el usuario para extraer la lista de productos actual
+        const result = await UserModel.find().populate("product");
+
+        //2) Hacemos un map donde se va a guardar en el array products todos los productos actuales del usuario
+        const products = result.product.map((item) => {
+            return item;
+        })
+
+        //3) Subimos a ese array el id del nuevo producto
+        products.push(idProduct);
+
+        //4) Actualizamos el usuario con la lista completa (los productos antiguos mas el nuevo)
+        const response = await UserModel.findByIdAndUpdate(
+            { _id: req.usuario.id },
+            { product: productse },
+            { new: true }
+        )
         res.status(201).send(response);
     } catch (error) {
         console.log(error)
-        res.status(400).send("hubo un error en la peticion put")
+        res.status(400).send("hubo un error en la peticion post")
     }
 }
+
 exports.PutLikes = async (req, res) => {
     try {
         const { idImagen } = req.params;

@@ -27,7 +27,14 @@ const UserModel = mongoose.Schema({
     admin:{
         type: String,
         required: true
+
     },
+    product:[
+        {
+        type:mongoose.Schema.Type.objetId,
+        ref:"product",
+     }],
+
     createAdd:{
         type: Date,
         default: Date.now()

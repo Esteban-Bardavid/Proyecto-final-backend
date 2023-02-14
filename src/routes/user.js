@@ -14,7 +14,8 @@ router.get('/', UserCollection.GetUsers)
 router.get('/searchEmail',  ResetCollections.searchEmail)
 router.post('/', UserCollection.PostUsers)
 router.post('/forgotPassword', AuthMiddleware, UserCollection.PostUsers)
-router.put('/:idUser', UserCollection.PutUsers)
+router.put('/product/:idProduct', AuthMiddleware, UserCollection.PutAddProduct)
+
 router.put('/resetPassword/:idUser', ResetCollections.ResetPassword)
 router.delete('/:idUser', UserCollection.DeleteUsers)
 

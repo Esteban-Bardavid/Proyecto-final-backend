@@ -21,7 +21,7 @@ exports.PostPost = async (req, res) => {
             authorName: userModel.name,
             description: description,
             image: image,
-            comments: comments,
+           
         })
         const response = await model.save();
         res.status(200).send(response)
@@ -35,7 +35,7 @@ exports.PostPost = async (req, res) => {
 
 exports.DeletePost = async (req, res) => {
     try {
-        const { idUser } = req.params;
+        const {idUser} = req.params;
         const response = await PostModel.findByIdAndDelete(idUser)
         res.status(200).send(response)
     } catch (error) {

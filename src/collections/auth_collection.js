@@ -2,6 +2,7 @@ const UserModel = require("../models/users_model")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
+
 exports.AuthGet = async (req, res) => {
     try {
         const response = await UserModel.findById(req.usuario.id);

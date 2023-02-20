@@ -2,9 +2,6 @@ const User = require("../models/users_model")
 const bcrypt = require("bcryptjs")
 
 
-
-
-
 exports.ResetPassword = async (req, res) => {
     const { idUser } = req.params
 

@@ -1,6 +1,7 @@
 const UserModel = require("../models/users_model");
 const bcrypt = require("bcryptjs");
 
+
 exports.GetUsers = async (req, res) => {
   try {
     //Busca a todos los usuarios dentro de UserModel en railway
@@ -11,6 +12,7 @@ exports.GetUsers = async (req, res) => {
     res.status(400).send("hubo un error en la peticion get");
   }
 };
+
 
 exports.PostUsers = async (req, res) => {
   try {
@@ -42,6 +44,7 @@ exports.PostUsers = async (req, res) => {
   }
 };
 
+
 exports.DeleteUsers = async (req, res) => {
   try {
     //Buscamos su ID por parametros
@@ -57,6 +60,7 @@ exports.DeleteUsers = async (req, res) => {
   }
 };
 
+
 exports.DeleteUser = async (req, res) => {
   try {
     //Buscamos su ID por parametros
@@ -69,6 +73,7 @@ exports.DeleteUser = async (req, res) => {
     res.status(400).send("hubo un error en la peticion delete");
   }
 };
+
 
 exports.PutAddProduct = async (req, res) => {
   const { idProduct } = req.params;
@@ -93,6 +98,7 @@ exports.PutAddProduct = async (req, res) => {
     res.status(400).send("hubo un error en la peticion post");
   }
 };
+
 
 exports.PutLikes = async (req, res) => {
   try {

@@ -5,7 +5,9 @@ require('dotenv').config();
 
 const nodemailer = require('nodemailer');
 
+
 module.exports = (app) => {
+
   app.post('/forgotPassword', (req, res) => {
     if (req.body.email === '') {
       res.status(400).send('email requerido');
@@ -26,6 +28,7 @@ module.exports = (app) => {
           resetPasswordExpires: Date.now() + 3600000,
         });
 
+
         const transporter = nodemailer.createTransport({
           service: 'gmail',
           auth: {
@@ -33,6 +36,7 @@ module.exports = (app) => {
             pass: `${process.env.EMAIL_PASSWORD}`,
           },
         });
+        
 
         const mailOptions = {
           from: 'Bardavidesteban@gmail.com',

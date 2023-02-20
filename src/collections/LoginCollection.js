@@ -1,8 +1,6 @@
 const UserModel = require("../models/users_model")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken");
-const { Swal } = require("sweetalert2");
-
 
 
 exports.LoginGet = async (req, res) => {

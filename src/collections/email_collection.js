@@ -1,5 +1,6 @@
 const EmailModel = require("../models/email_model");
 
+
 exports.EmailGet = async (req, res) => {
     try {
         const emailEcontrado = await EmailModel.find()

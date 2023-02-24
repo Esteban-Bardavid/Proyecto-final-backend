@@ -11,14 +11,11 @@ const UserModel = mongoose.Schema({
   },
   age: {
     type: Number,
+    required: true
   },
   email: {
     type: String,
     required: true,
-  },
-  admin: {
-    type: Boolean,
-    default: false,
   },
   password: {
     type: String,

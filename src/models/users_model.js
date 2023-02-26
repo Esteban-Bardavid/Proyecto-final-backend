@@ -16,10 +16,6 @@ const UserModel = mongoose.Schema({
     type: String,
     required: true,
   },
-  admin: {
-    type: Boolean,
-    default: false,
-  },
   password: {
     type: String,
     required: true,

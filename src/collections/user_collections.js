@@ -114,3 +114,17 @@ exports.PutLikes = async (req, res) => {
     res.status(400).send("hubo un error en la peticion put");
   }
 };
+
+
+exports.PutUser = async (req, res) => {
+  try {
+      //Buscamos su ID por parametros
+      const { idUser } = req.params;
+      //Busca el usuario por ID (idUser) => tomar el req.body y cambia el usuario encontrado
+      const response = await UserModel.findByIdAndUpdate({ _id: idUser }, req.body, { new: true })
+      res.status(201).send(response);
+  } catch (error) {
+      console.log(error)
+      res.status(400).send("hubo un error en la peticion put")
+  }
+}

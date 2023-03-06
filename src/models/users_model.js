@@ -25,13 +25,32 @@ const UserModel = mongoose.Schema({
     type: String,
     required: true,
   },
-  product: [
+  product: 
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "product",
-    },
-  ],
-
+      0: {
+        type: String,
+      },
+      1: {
+        type: String,
+      },
+      2: {
+        type: Number
+      },
+      3: {
+        type: String,
+      },
+      4: {
+        type: String,
+      },
+      5: {
+        type: Number
+      },
+      total: {
+        type: Number,
+      },
+   
+    }
+  ,
   createAdd: {
     type: Date,
     default: Date.now(),

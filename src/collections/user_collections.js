@@ -95,7 +95,7 @@ exports.PutAddProduct = async (req, res) => {
     res.status(201).send(response);
   } catch (error) {
     console.log(error);
-    res.status(400).send("hubo un error en la peticion post");
+    res.status(400).send("hubo un error en la peticion put");
   }
 };
 

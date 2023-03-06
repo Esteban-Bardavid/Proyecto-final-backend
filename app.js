@@ -25,6 +25,7 @@ const postRoutes = require('./src/routes/post')
 const emailRoutes = require('./src/routes/email')
 const loginRoutes = require('./src/routes/LoginRoute')
 const adminProductsRoutes = require('./src/routes/adminProducts')
+const adminShoppingRoutes = require('./src/routes/adminShopping')
 
 app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
@@ -32,6 +33,7 @@ app.use('/api/post', postRoutes)
 app.use('/api/email', emailRoutes)
 app.use('/api/Login', loginRoutes)
 app.use ('/api/adminProducts', adminProductsRoutes)
+app.use ('/api/adminShopping', adminShoppingRoutes)
 
 
 app.listen(app.get("port"), () => {

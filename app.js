@@ -37,5 +37,4 @@ app.use ('/api/adminShopping', adminShoppingRoutes)
 
 
 app.listen(app.get("port"), () => {
-    console.log("servidor en funcionamiento en puerto", app.get("port"))
 })

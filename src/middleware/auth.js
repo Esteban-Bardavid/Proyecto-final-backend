@@ -10,7 +10,7 @@ function AuthMiddleware(req, res, next) {
         req.usuario = cifrado.usuario
         next()
     } catch (error) {
-        console.log(error)
+        console.error(error)
         res.status(401).send("error en verificacion de token")
     }
 }

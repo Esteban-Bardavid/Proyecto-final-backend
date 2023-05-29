@@ -20,7 +20,6 @@ module.exports = app => {
         console.error('el enlace de restablecimiento de contraseña no es válido o ha caducado');
         res.status(403).send('el enlace de restablecimiento de contraseña no es válido o ha caducado');
       } else if (user != null) {
-        console.log('el usuario ya existe en la base de datos');
         bcrypt
           .hash(req.body.password, BCRYPT_SALT_ROUNDS)
           .then(hashedPassword => {
@@ -31,7 +30,6 @@ module.exports = app => {
             });
           })
           .then(() => {
-            console.log('contraseña actualizada');
             res.status(200).send({ message: 'contraseña actualizada' });
           });
       } else {

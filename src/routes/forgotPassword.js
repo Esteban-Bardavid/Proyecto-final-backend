@@ -49,13 +49,12 @@ module.exports = (app) => {
             + 'Si no solicitó esto, ignore este correo electrónico y su contraseña permanecerá sin cambios.\n',
         };
 
-        console.log('Enviando email');
+    
 
         transporter.sendMail(mailOptions, (err, response) => {
           if (err) {
             console.error('Hubo un error: ', err);
           } else {
-            console.log('Aqui esta la res: ', response);
             res.status(200).json('correo electrónico de recuperación enviado');
           }
         });

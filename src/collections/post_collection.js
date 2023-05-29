@@ -7,7 +7,7 @@ exports.GetPost = async (req, res) => {
         const response = await PostModel.find();
         res.status(200).send(response)
     } catch (error) {
-        console.log(error);
+        console.error(error);
         res.status(400).send('Get function failed');
     }
 }
@@ -27,7 +27,7 @@ exports.PostPost = async (req, res) => {
         res.status(200).send(response)
 
     } catch (error) {
-        console.log(error);
+        console.error(error);
         res.status(400).send('Error en posteo')
 
     }
@@ -39,7 +39,7 @@ exports.DeletePost = async (req, res) => {
         const response = await PostModel.findByIdAndDelete(idUser)
         res.status(200).send(response)
     } catch (error) {
-        console.log(error)
+        console.error(error)
         res.status(400).send("hubo un error en la peticion delete")
     }
 }
@@ -50,7 +50,7 @@ exports.PutPost = async (req, res) => {
         const response = await PostModel.findByIdAndUpdate({ _id: idUser }, req.body, { new: true })
         res.status(201).send(response);
     } catch (error) {
-        console.log(error)
+        console.error(error)
         res.status(400).send("hubo un error en la peticion put")
     }
 }

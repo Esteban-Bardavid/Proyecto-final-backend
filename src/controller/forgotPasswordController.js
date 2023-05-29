@@ -46,7 +46,7 @@ const ForgotPassword = {
             if(err){
                 console.error("Ha ocurrido un error:", err);
             }else{
-                console.log("Respuesta:", response);
+                
                 res.status(200).json("El email para recuperar su cuenta ha sido enviado");
             }
         })

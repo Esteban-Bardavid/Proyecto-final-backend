@@ -6,7 +6,7 @@ exports.EmailGet = async (req, res) => {
         const emailEcontrado = await EmailModel.find()
         res.status(200).send(emailEcontrado);
     } catch (error) {
-        console.log(error);
+        console.error(error);
         res.status(400).send("email not found");
     }
 }
@@ -23,7 +23,7 @@ exports.EmailPost = async (req, res) => {
         const response = await EmailModel.save();
         res.status(200).send(response);
     } catch (error) {
-        console.log(error);
+        console.error(error);
         res.status(400).send("email no creado");
     }
 }

@@ -27,12 +27,10 @@ app.post("/ForgotPassword", async (req, res) => {
   
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-          console.log(error);
+          console.error(error);
         } else {
-          console.log("Email sent: " + info.response);
         }
       });
-      console.log(link);
     } catch (error) {}
   });
   
